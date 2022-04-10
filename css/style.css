@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper__map {
+    position: relative;
+}
+
+.wrapper__map svg {
+    position: absolute;
+    top: -2px;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
+.room {
+    fill: none;
+    cursor: pointer;
+    pointer-events: all;
+    stroke-width: 2px;
+    fill-opacity: 0.5;
+}
+
+.room:hover {
+    animation: highlightRoom 2s linear infinite;
+}
+
+@keyframes highlightRoom {
+    0% {
+        stroke: #000;
+        fill: red;
+    }
+    50% {
+        stroke: red;
+        fill: black;
+    }
+    100% {
+        stroke: #000;
+        fill: red;
+    }
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 5px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.info__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: 0.3s all;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.info__bg.active {
+    pointer-events: all;
+    opacity: 1;
+    transition: 0.3s all;
+}
+
+.info {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    width: 500px;
+}
